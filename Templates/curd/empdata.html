@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>welcome to django application</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>salary</th>
+        <th>adress</th>
+        <th>email</th>
+     </tr>
+    <tr>
+        {% for e in emp %}
+        <td>{{e.empno}}</td>
+        <td>{{e.empname}}</td>
+        <td>{{e.age}}</td>
+        <td>{{e.salary}}</td>
+        <td>{{e.adresss}}</td>
+        <td>{{e.email}}</td>
+        <td><a href="/curd/update/{{e.id}}">Edit</a></td>
+        <td><a href="/curd/delete/{{e.id}}">Delete</a></td>
+
+
+
+
+    </tr>
+        {% endfor %}
+
+
+
+
+
+
+
+
+</table>
+</body>
+</html>
+

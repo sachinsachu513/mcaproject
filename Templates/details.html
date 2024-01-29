@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'summa.css' %}">
+
+</head>
+<body >
+
+
+<table class="ipl">
+    <tr>
+        <th> S.Name</th>
+        <th> S.Age</th>
+        <th> S.Email</th>
+    </tr>
+    <tr>
+        {% csrf_token %}
+       {% for s in student%}
+    <td>{{s.name}}</td>
+    <td>{{s.age}}</td>
+    <td>{{s.email}}</td>
+    </tr>
+        {% endfor %}
+ </body>
+
+
+</html>

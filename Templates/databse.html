@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>database</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th> firstname</th>
+        <th> age</th>
+        <th> email id</th>
+        <th> address</th>
+    </tr>
+    <tr>
+      {% for s in details  %}
+       <td>{{s.first_name}}</td>
+       <td>{{s.age}}</td>
+       <td>{{s.emailid}}</td>
+       <td>{{s.adress}}</td>
+    </tr>
+      {% endfor %}
+
+
+</table>
+</body>
+</html>
