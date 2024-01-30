@@ -1,14 +1,36 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'def.css' %}">
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-</body>
+<form autocomplete="off" method="post">
+    <div class="registration-form">
+      <h2>login form</h2>
+      {% csrf_token %}
 
+
+
+      <div class="form-group">
+        {{ form.emailid.label_tag }}
+        {{ form.emailid }}
+      </div>
+
+
+      <div class="form-group">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+      </div>
+
+
+      <div class="form-group">
+        <input type="submit" value="login">
+      </div>
+
+    </div>
+  </form>
+</body>
+</html>

@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'database',
     'Templates',
 
-    'Static',
     'curd',
     'mca',
+    'static',
 
 ]
 
@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS=[
 
-    BASE_DIR.joinpath("Static")
+    BASE_DIR.joinpath("static")
 
 ]
 
