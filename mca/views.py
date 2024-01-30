@@ -1,8 +1,15 @@
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 from django.shortcuts import render
-from .form import regform
+from .form import regform,LoginForm
 from.models import registration1
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from django.contrib.auth import authenticate,login
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
 
 
 def submitform(request):
@@ -29,10 +36,38 @@ def submitform(request):
 
                   if reg.password==y:
                     reg.save()
+                    return HttpResponse(f'hi {reg.first_name},your account added sucessfully')
+
+
                   else:
                         return render(request,'miniproj//oops.html')
 
             else:
                   return HttpResponse ("<h1> some fields are misssing </h1>")
       form=regform()
-      return render(request,"miniproj//register.html",context={'form':form})
+      return render(request,"miniproj/register.html",context={'form':form})
+
+
+
+def login(request):
+
+        if request.method == 'POST':
+            form = LoginForm(request.POST)
+            if form.is_valid():
+                email = form.cleaned_data['emailid']
+                password = form.cleaned_data['password']
+                user = registration1.objects.filter(emailid=email, password=password).first()
+
+                if user is not None:
+                    LoginForm(request,user)
+                    return HttpResponse("Login successful")
+                else:
+                    return HttpResponse("Invalid credentials")
+            else:
+                return HttpResponse("Form is not valid")
+        else:
+            form = LoginForm()
+
+            return render(request, "miniproj/login.html", context={'form': form})
+
+
